@@ -1,2 +1,2 @@
 # study-java
-Study java
+Study Java Programming! 
