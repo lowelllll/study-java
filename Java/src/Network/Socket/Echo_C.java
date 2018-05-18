@@ -1,6 +1,6 @@
 // 입력한 문자열을 host로 지정한 서버에 출력하고 클라이언트 화면에도 출력하는 예제
 import java.io.*;
-imprt java.net.*;
+import java.net.*;
 class Echo_C 
 {
 	public static void main(String[] args) 
