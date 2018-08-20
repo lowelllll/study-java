@@ -1,0 +1,15 @@
+article div {
+	width:400px;
+	margin:0 auto;
+}
+
+table {
+	width: 100%;
+	height:250px;
+    text-align: center;
+}
+
+table input[type="text"] {
+	width:80%;
+	height:20px;
+}

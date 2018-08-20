@@ -1,0 +1,14 @@
+article div {
+	width:800px;
+	margin:0 auto;
+}
+
+article table  {
+	width:100%;
+	height: auto;
+	text-align:center;
+}
+
+table tr{
+	height:30px;
+}
