@@ -13,41 +13,36 @@
 
 <%
 	ShoppingMall shop = new ShoppingMall();
-	ResultSet rs = shop.getUserList();
+	ResultSet rs = shop.getPrice();
 %>
 </head>
 <body>
 <%@ include file="header.jsp" %>
 		<section>
 			<article>
-				<h2>쇼핑몰 회원관리 프로그램</h2>
+				<h2>쇼핑몰 회원 매출 조회</h2>
 				<div>
 					<table>
 						<tr>
 							<td>회원 번호</td>
 							<td>회원 성명</td>
-							<td>회원 번호</td>
-							<td>가입 날짜</td>
-							<td>회원 주소</td>
 							<td>회원 등급</td>
-							<td>도서 코드</td>
+							<td>매출</td>
 						</tr>
 						<%
 							while(rs.next()){
 						%>
 							<tr>
-								<td><a href="update.jsp?custno=<%=rs.getString(1)%>"><%=rs.getString(1) %></a></td>
+								<td><%=rs.getString(1) %></td>
 								<td><%=rs.getString(2) %></td>
-								<td><%=rs.getString(3) %></td>
-								<td><%=rs.getString(4) %></td>
-								<td><%=rs.getString(5) %></td>
+								
 								<td>
 									<%
-										if("A".equals(rs.getString(6))){
+										if("A".equals(rs.getString(3))){
 									%>
 									VIP
 									<% 
-										}else if("B".equals(rs.getString(6))){
+										}else if("B".equals(rs.getString(3))){
 									%>
 									일반
 									<%
@@ -58,7 +53,8 @@
 										}
 									%>
 								</td>
-								<td><%=rs.getString(7) %></td>
+								<td><%=rs.getString(4) %></td>
+								<td>
 							</tr>
 						<%
 							}

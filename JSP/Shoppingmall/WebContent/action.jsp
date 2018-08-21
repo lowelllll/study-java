@@ -16,8 +16,16 @@
 	String joindate = request.getParameter("joindate");
 	String grade = request.getParameter("grade");
 	String code = request.getParameter("code");
+	String custno = request.getParameter("custno");
+	String action = request.getParameter("action");
 	
-	boolean flag = shop.createUser(name, tel, address, joindate,grade, code);
+	boolean flag = false;
+	if ("create".equals(action)) {
+		flag = shop.createUser(name, tel, address, joindate,grade, code);
+	} else {
+		flag = shop.updateUser(custno,name, tel, address, joindate,grade, code);
+	}
+	
 
 %>
 </head>
@@ -25,15 +33,30 @@
 </body>
 <script>
 <%
-	if(flag){
+	if("create".equals(action)){
+		if(flag){
 %>
-	alert("회원등록에 성공했습니다.");
-	location.href="index.jsp";
+		alert("회원정보 등록에 성공했습니다.");
+		location.href="list.jsp";
 <%
-	}else{
+		}else{
 %>
-	alert("회원등록에 실패했습니다.");
+		alert("회원 정보등록에 실패했습니다.");
+		history.back();
+<%	
+		}
+	}else {
+		if(flag){
+%>
+		alert("회원정보 수정에 성공했습니다.");
+		location.href="list.jsp";
 <%
+		}else{
+%>
+		alert("회원 정보등록에 실패했습니다.");
+		history.back();
+<%
+		}
 	}
 %>
 </script>
