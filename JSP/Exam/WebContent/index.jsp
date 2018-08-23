@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="shoppingmall.ShoppingMall"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>쇼핑몰 회원관리 ver 1.0</title>
 <link rel="stylesheet" href="common.css">
+<%
+	ShoppingMall shop = new ShoppingMall();
+	ResultSet rs = shop.selectCustno();
+	if(rs.next()){
+		String custno = rs.getString(1);
+	}
+%>
 </head>
 <body>
 	<div id="wrap">
@@ -14,11 +23,11 @@
 			<article>
 				<h2>쇼핑몰 회원관리 프로그램</h2>
 				<div>
-					<form action="" name="form">
+					<form action="action.jsp" name="form">
 						<table>
 							<tr>
 								<td>회원번호</td>
-								<td><input type="text"></td>
+								<td><input type="text" value="<%=rs.getString(1) %>" readonly></td>
 							</tr>
 							<tr>
 								<td>회원성명</td>
@@ -48,8 +57,10 @@
 								<td colspan="2">
 									<button type="button" class="btn">등록</button>
 									<a href=""><button>조회</button></a>
+									<input type="hidden" value="create" name="action">
 								</td>
 							</tr>
+							
 						</table>
 					</form>
 				</div>
@@ -60,6 +71,7 @@
 </body>
 <script>
 var btn = document.getElementsByClassName("btn")[0];
+
 var form = document.forms['form'];
 var field = ["회원 성명","회원 전화", "회원 주소", "가입 일자","고객 등급","도시코드"];
 
