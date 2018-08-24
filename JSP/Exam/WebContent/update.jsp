@@ -10,11 +10,7 @@
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="edit.css">
 <%
-	ShoppingMall shop = new ShoppingMall();
-	ResultSet rs = shop.selectCustno();
-	if(rs.next()){
-		String custno = rs.getString(1);
-	}
+
 %>
 </head>
 <body>
@@ -22,13 +18,13 @@
 		<%@ include file= "header.jsp" %>
 		<section>
 			<article>
-				<h2>쇼핑몰 회원관리 프로그램</h2>
+				<h2>회원 정보 수정</h2>
 				<div>
 					<form action="action.jsp" name="form">
 						<table>
 							<tr>
 								<td>회원번호</td>
-								<td><input type="text" value="<%=rs.getString(1) %>" readonly></td>
+								<td><input type="text" value="" readonly></td>
 							</tr>
 							<tr>
 								<td>회원성명</td>
