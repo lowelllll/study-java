@@ -28,7 +28,7 @@
 						<table>
 							<tr>
 								<td>회원번호</td>
-								<td><input type="text" value="<%=rs.getString(1) %>" readonly></td>
+								<td><input type="text" name ="custno" value="<%=rs.getString(1) %>" readonly></td>
 							</tr>
 							<tr>
 								<td>회원성명</td>
@@ -57,7 +57,7 @@
 							<tr>
 								<td colspan="2">
 									<button type="button" class="btn">등록</button>
-									<a href=""><button>조회</button></a>
+									<a href=""><button type="button">조회</button></a>
 									<input type="hidden" value="create" name="action">
 								</td>
 							</tr>

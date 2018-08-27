@@ -18,6 +18,7 @@
 	String date = request.getParameter("date");
 	String grade = request.getParameter("grade");
 	String code = request.getParameter("code");
+	String custno = request.getParameter("custno");
 %>
 <body>
 </body>
@@ -27,12 +28,24 @@ if("create".equals(action)){
 	if(shop.createUser(name, tel, address, date, grade, code)){
 %>
 	alert("회원 등록에 성공했습니다!");
-	location.href="index.jsp";
+	location.href="list.jsp";
 <%
 	}else{
 %>
 	alert("회원가입에 실패했습니다!");
 	history.back();
+<%
+	}
+}else if("update".equals(action)){
+	if(shop.updateUser(name, tel, address, date, grade, code, custno)){
+%>
+		alert("회원 정보 수정에 성공했습니다!");
+		location.href="list.jsp";
+<%		
+	}else{
+		%>
+		alert("회원 정보 수정에 실패했습니다!");
+		history.back();
 <%
 	}
 }

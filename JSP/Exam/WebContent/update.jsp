@@ -10,7 +10,11 @@
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="edit.css">
 <%
-
+	String custno = request.getParameter("custno");
+	ShoppingMall shop = new ShoppingMall();
+	ResultSet rs = shop.getUser(custno);
+	
+	while(rs.next()){
 %>
 </head>
 <body>
@@ -24,37 +28,37 @@
 						<table>
 							<tr>
 								<td>회원번호</td>
-								<td><input type="text" value="" readonly></td>
+								<td><input type="text" value="<%=rs.getString(1) %>" readonly name="custno" ></td>
 							</tr>
 							<tr>
 								<td>회원성명</td>
-								<td><input type="text" name="name"></td>
+								<td><input type="text" value="<%=rs.getString(2) %>" name="name"></td>
 							</tr>
 							<tr>
 								<td>회원전화</td>
-								<td><input type="text" name="tel"></td>
+								<td><input type="text" value="<%=rs.getString(3) %>" name="tel"></td>
 							</tr>
 							<tr>
 								<td>회원주소</td>
-								<td><input type="text" name="address"></td>
+								<td><input type="text" value="<%=rs.getString(4) %>" name="address"></td>
 							</tr>
 							<tr>
 								<td>가입일자</td>
-								<td><input type="date" name="date"></td>
+								<td><input type="date" id="date"  name="date"></td>
 							</tr>
 							<tr>
 								<td>고객등급 [A:VIP,B:일반,C:직원]</td>
-								<td><input type="text" name="grade"></td>
+								<td><input type="text" name="grade" value="<%=rs.getString(6) %>" ></td>
 							</tr>
 							<tr>
 								<td>도시코드</td>
-								<td><input type="text" name="code"></td>
+								<td><input type="text" name="code" value="<%=rs.getString(7) %>" ></td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<button type="button" class="btn">등록</button>
-									<a href=""><button>조회</button></a>
-									<input type="hidden" value="create" name="action">
+									<a href=""><button type="button">조회</button></a>
+									<input type="hidden" value="update" name="action">
 								</td>
 							</tr>
 							
@@ -65,8 +69,13 @@
 		</section>
 		<%@ include file= "footer.jsp" %>
 	</div>
+
 </body>
 <script>
+document.getElementById("date").value = "<%=rs.getString(5)%>";
+<%
+	}
+%>
 var btn = document.getElementsByClassName("btn")[0];
 
 var form = document.forms['form'];
