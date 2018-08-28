@@ -1,0 +1,55 @@
+table {
+	width: 100%;
+    border: 1px solid #eee;
+    text-align: center;
+    margin-top: 30px;
+	font-size:14px;
+	border-radius:10px;
+	border-collapse : collapse;
+	height:350px;
+}
+
+th,td {
+	padding:10px;
+}
+
+th {
+	border-bottom:1px solid #ddd;
+}
+
+table form {
+	display:inline-block;
+}
+table form button {
+	border:none;
+	background:none;
+	color:#3498db;
+}
+
+table a {
+	text-decoration:none;
+	color:#3498db;
+	font-size:13px;
+}
+article div {
+	width:100%;
+	height:50px;
+	margin-top:30px;
+}
+
+article div button {
+	display: inline-block;
+    float: right;
+    width: 80px;
+    height: 30px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor:pointer;
+    font-size:12px;
+}
+
+table tbody tr:hover {
+	background-color:#eee;
+}

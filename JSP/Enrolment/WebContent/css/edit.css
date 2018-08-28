@@ -1,0 +1,44 @@
+form {
+	width:100%;
+	height:100%;
+}
+
+table {
+	width: 80%;
+    min-height: 400px;
+    margin-top: 30px;
+    border: 1px solid #eee;
+    border-collespe:collespe;
+    font-size:14px;
+}
+
+td,th {
+	padding:15px;
+}
+
+td:first-child {
+	border-right:1px solid #eee;
+}
+table input[type="text"]{
+	width: 200px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+article div {
+	width:100%;
+	height:50px;
+	margin-top:30px;
+}
+
+article div button {
+	display: inline-block;
+    width: 80px;
+    height: 30px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor:pointer;
+    font-size:12px;
+}
