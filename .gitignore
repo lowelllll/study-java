@@ -2,4 +2,4 @@
 bin
 *.class
 *.bak
-
+.DS_Store
