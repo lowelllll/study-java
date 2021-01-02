@@ -2,4 +2,10 @@
 bin
 *.class
 *.bak
+
+# ide
 .DS_Store
+.metadata
+.idea
+
+**/out
