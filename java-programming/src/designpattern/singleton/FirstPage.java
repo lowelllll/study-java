@@ -1,7 +1,7 @@
 package designpattern.singleton;
 
 public class FirstPage {
-    private Settings settings = Settings.getSettings();
+    private Settings settings = Settings.getInstance();
 
     public void setAndPrintSettings() {
         settings.setDarkMode(true);

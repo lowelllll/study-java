@@ -2,19 +2,14 @@ package designpattern.singleton;
 
 public class Settings {
 
-    private static Settings settings = null;
-    ;
     private boolean darkMode = false;
     private int fontSize = 13;
 
     private Settings() {
     }
 
-    public static Settings getSettings() {
-        if (settings == null) {
-            settings = new Settings();
-        }
-        return settings;
+    public static Settings getInstance() {
+        return InnerClass.settings;
     }
 
     public boolean getDarkMode() {
@@ -31,5 +26,10 @@ public class Settings {
 
     public void setFontSize(int _fontSize) {
         fontSize = _fontSize;
+    }
+
+    private static class InnerClass {
+        private static final Settings settings = new Settings();
+        // 멀티쓰레드에 안전, lazy loading 지원, serialization에도 안전한 싱글톤
     }
 }
